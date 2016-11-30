@@ -119,11 +119,12 @@ d3.json("caFire.json", function (error, caFire) {
                 // good for now (11.23), will need to be changed later
                 .style("left", function () {
                     console.log(Y);
-                    if (Y > 350 && Y < 870)
+                    if (Y >= 870)
+                        return toolscaleX(960) + "px";
+                    if (Y < 350)
+                        return toolscaleX(430) + "px";
+                    if (Y >= 350 && Y < 870)
                         return toolscaleX((Y / 0.88372) + 30) + "px";
-                    else if (Y >= 870)
-                        return toolscaleX(900);
-                    else return toolscaleX(430) + "px";
                 })
                 .style("top", (d3.event.pageY - 28) + "px");
             div.html("Fire Name: " + t_name + "<br>" +
