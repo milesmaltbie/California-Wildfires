@@ -1,0 +1,90 @@
+svg {
+    font: 10px sans-serif;
+}
+
+.caption {
+    font-weight: bold;
+}
+
+.key path {
+    display: none;
+}
+
+.key line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.fire {
+    fill: grey;
+    stroke-opacity: .5;
+    fill-opacity: .5;
+}
+
+.fire:hover {
+    fill: orangered;
+    stroke-opacity: .5;
+    fill-opacity: 1;
+}
+
+.state-border {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .4;
+}
+
+.county-border {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .4;
+}
+
+.tooltip {
+    position: absolute;
+    font: 16px sans-serif;
+    text-align: left;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(256, 256, 256, 0.8);
+    color: grey;
+    border-radius: 2px;
+    left: 450px;
+    top: 300px;
+}
+
+div.container {
+    width: 100%;
+}
+
+header {
+    padding: 1em;
+    color: black;
+    background-color: lightgray;
+    clear: left;
+    text-align: center;
+    
+}
+
+column1{
+    float: left;
+    width: 33%;
+    height: 100%;
+    border-right: 1px solid gray;
+    padding-top: 1em;
+}
+
+column2{
+    float: left;
+    width: 33%;
+    height: 100%;
+    padding-top: 1em;
+}
+
+column3{
+    float: left;
+    width: 33%;
+    height: 100%;
+    border-left: 1px solid gray;
+    padding-top: 1em;
+}
