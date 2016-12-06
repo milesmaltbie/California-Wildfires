@@ -8,21 +8,25 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-
+    <link rel="stylesheet" type="text/css" href="d3.slider.css">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+    <script src="d3.slider.js"></script>
+    
 
 </head>
 
 <body>
 
-    <h1 style="text-align:center; font: 24px sans-serif; font-weight: bold; text-align: left; padding-left: 30px; color:black">
-        <bold>Wildfires Larger Than 5000 Acres in California, 1878 - 2015</bold>
+    <h1 style="text-align:center; font: 24px sans-serif; font-weight: bold; padding-left: 30px; color:#808080">
+        <bold>Wildfires in California, 1895 - 2015</bold>
     </h1>
     
+    
     <script type="text/javascript" src="CA_Fires.js"></script>
-
+    <div id="slider"></div>
+    <br>
     <div class="container">
         <header>
             <h3>Created by Gavin Sonne, Kaio Barbosa, and Wookjin Jang in collaboration with Suresh K Lodha, Shobhit Maheshwari, and Ryan Brounley for CMPS 165 - Data Programming and Visualization</h3>
@@ -34,6 +38,8 @@
             <ul>stylesheet.css</ul>
             <ul>CA_Fires.js</ul>
             <ul>caFire.json</ul>
+            <ul>d3.slider.css</ul>
+            <ul>d3.slider.js</ul>
         </column1>
         
         <column2>
@@ -47,7 +53,8 @@
             <ul><a href="https://bl.ocks.org/mbostock/5562380">California Population Density</a> by Mike Bostock</ul>
             <ul><a href="http://bl.ocks.org/eesur/4e0a69d57d3bfc8a82c2">SVG to the front and back</a> by Sundar</ul>
             <ul><a href="http://stackoverflow.com/questions/196972/convert-string-to-title-case-with-javascript">Convert String to Title Case with JavaScript</a> Stack Overflow</ul>
-            <br><br>
+            <ul><a href="https://github.com/MasterMaps/d3-slider">d3-slider</a> by MasterMaps</ul>
+            <ul><a href="http://thematicmapping.org/playground/d3/d3.slider/">D3.js Slider Examples</a></ul>
         </column3>
     
     
