@@ -232,7 +232,7 @@ function agencyCode(a) {
             a = "Bureau of Land Management"
             break;
         case "CAL":
-            a = "California Department of Forestry and Fire Protection (CAL FIRE)"
+            a = "California Department of Forestry (CAL FIRE)"
             break;
         case "CCO":
             a = "Contract Counties"
@@ -262,7 +262,7 @@ function agencyCode(a) {
             a = "Other"
             break;
         case "CDF":
-            a = "California Department of Forestry and Fire Protection (CAL FIRE)"
+            a = "California Department of Forestry (CAL FIRE)"
             break;
     }
     return a;
