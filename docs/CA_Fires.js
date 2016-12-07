@@ -1,6 +1,5 @@
 var width = 645,
     height = 750;
-//700, 948
 
 var formatNumber = d3.format(",d");
 
@@ -19,9 +18,6 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-/*var g = svg.append("g")
-    .attr("class", "key")
-    .attr("transform", "translate(440,40)");*/
 
 var div = d3.select("body").append("div")
     .attr("class", "tooltip")
@@ -33,14 +29,6 @@ var svgTop = val.top;
 var svgBottom = val.bottom;
 var svgRight = val.right;
 var viewBoxHeight = 1150;
-console.log(svgBottom);
-//console.log("position is " + val.top + "," + val.left);
-
-/*var displaySites = function(data) {
-  var sites = svg.selectAll(".site")
-      .data(data, function(d) {
-        return d.permalink;
-      });*/
 
 var slider = d3.slider().min(1895).max(2015).step(1).axis(true).value([1895, 2015]);
 
@@ -66,14 +54,14 @@ d3.json("caFire.json", function (error, caFire) {
     var fires = topojson.feature(caFire, caFire.objects.fires);
     //var vals = values[0].properties;
 
-    // Clip tracts to land.
+    // Clip fires to land.
     svg.append("defs").append("clipPath")
         .attr("id", "clip-land")
         .append("path")
         .datum(topojson.feature(caFire, caFire.objects.counties))
         .attr("d", path);
 
-    // Group tracts by color for faster rendering.
+    // Group fires by color for faster rendering.
     svg.append("g")
         .attr("class", "fireclip")
         .attr("clip-path", "url(#clip-land)")
@@ -112,19 +100,14 @@ d3.json("caFire.json", function (error, caFire) {
 
                 coordinates = d3.mouse(this);
                 var Y = coordinates[1];
-                //console.log(Y);
 
                 div.style("opacity", 0)
                     .transition().duration(400)
                     .style("opacity", .8)
-                    // campy code that makes the tooltip follow California's border
-                    // good for now (11.23), will need to be changed later
+                    // Displays tooltip to the right of the map
                     .style("left", function () {
-                        //console.log(Y);
-                        //return toolscaleX(960 + width) + "px";
                         if (Y < ((viewBoxHeight + svgTop) * .28))
                             return svgLeft + width / 2.4 + "px";
-                        //return toolscaleX(430 + width) + "px";
                         else if (Y >= ((viewBoxHeight + svgTop) * .28) && Y <= ((viewBoxHeight + svgTop) * .65))
                             return ((Y / 1.5) + (width + 40)) + "px";
                         else if (Y > ((viewBoxHeight + svgTop) * .65))
@@ -137,12 +120,10 @@ d3.json("caFire.json", function (error, caFire) {
                             return 650 + "px";
                     });
                 div.html("<tab1>Fire Name: </tab1><tab2>" + t_name + "</tab2><br>" +
-                        "<tab1>Year:</tab1><tab2>" + d.values[0].properties.year + "</tab2><br>" +
-                        "<tab1>Agency: </tab1><tab2>&nbsp&nbsp" + t_agency + "</tab2><br>" +
-                        "<tab1>Cause: </tab1><tab2>" + t_cause + "</tab2><br>" +
-                        "<tab1>Total Acreage: </tab1><tab2>" + t_acreage + "</tab2>")
-                    /*.style("left", (d3.event.pageX + 20) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px")*/
+                    "<tab1>Year:</tab1><tab2>" + d.values[0].properties.year + "</tab2><br>" +
+                    "<tab1>Agency: </tab1><tab2>&nbsp&nbsp" + t_agency + "</tab2><br>" +
+                    "<tab1>Cause: </tab1><tab2>" + t_cause + "</tab2><br>" +
+                    "<tab1>Total Acreage: </tab1><tab2>" + t_acreage + "</tab2>")
                 d3.select(".tooltip").classed("hidden", false);
             }
         })
@@ -151,8 +132,6 @@ d3.json("caFire.json", function (error, caFire) {
             div.style("opacity", .8)
                 .transition().duration(400)
                 .style("opacity", 0);
-            //div.style("opacity", 0)
-            //d3.select(".tooltip").classed("hidden", true);
         })
         .on("click", function (d) { // move selection back on click to see more
             d3.select(this).moveToBack();
@@ -192,31 +171,25 @@ d3.json("caFire.json", function (error, caFire) {
 
     // Render the slider in the div and give it functionality
     d3.select('#slider').call(slider
-        .on("slide", function (evt, targetyear) {
-            d3.select("#handle-one").select(".yearBox")
-                .html(targetyear[0]);
-            d3.select("#handle-two").select(".yearBox")
-                .html(targetyear[1]);
-            svg.selectAll(".fire").each(function (d) {
-                if (d.values[0].properties.year > targetyear[0] && d.values[0].properties.year < targetyear[1]) {
-                    //this.style.opactiy += 0.8;
-                    this.setAttribute("hoverable", "true");
-                    //this.style.opacity = (d.values[0].properties.year > targetyear[0] && d.values[0].properties.year < targetyear[1]) ? .8 : 0;
-                    // iterate through fires, only display fires in slider range
-                    //this.style.opacity = (d.values[0].properties.year > targetyear[0] && d.values[0].properties.year < targetyear[1]) ? .8 : 0;
-                } else {
-                    //this.style.opacity += 0;
-                    //this.style.opacity = (d.values[0].properties.year > targetyear[0] && d.values[0].properties.year < targetyear[1]) ? .8 : 0;
-                    this.setAttribute("hoverable", "false");
-                }
-                this.style.fillOpacity = (d.values[0].properties.year > targetyear[0] && d.values[0].properties.year < targetyear[1]) ? .5 : 0;
+            .on("slide", function (evt, targetyear) {
+                d3.select("#handle-one").select(".yearBox")
+                    .html(targetyear[0]);
+                d3.select("#handle-two").select(".yearBox")
+                    .html(targetyear[1]);
+                svg.selectAll(".fire").each(function (d) {
+                    if (d.values[0].properties.year > targetyear[0] && d.values[0].properties.year < targetyear[1]) {
+                        this.setAttribute("hoverable", "true");
+                    } else {
+                        this.setAttribute("hoverable", "false");
+                    }
+                    this.style.fillOpacity = (d.values[0].properties.year > targetyear[0] && d.values[0].properties.year < targetyear[1]) ? .5 : 0;
+                })
             })
-        })
-    )
-    .selectAll(".d3-slider-handle")
+        )
+        .selectAll(".d3-slider-handle")
         .append("div")
         .attr("class", "yearBox")
-    
+
     d3.select("#handle-one").select(".yearBox")
         .html("1895");
     d3.select("#handle-two").select(".yearBox")
