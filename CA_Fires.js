@@ -193,7 +193,7 @@ d3.json("caFire.json", function (error, caFire) {
     d3.select("#handle-one").select(".yearBox")
         .html("1895");
     d3.select("#handle-two").select(".yearBox")
-        .html("2015");
+        .html("2019");
 });
 
 function agencyCode(a) {
