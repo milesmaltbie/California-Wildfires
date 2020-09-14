@@ -49,7 +49,7 @@ d3.selection.prototype.moveToBack = function () {
 };
 
 d3.json("caFire.json", function (error, caFire) {
-    //if (error) throw error;
+    if (error) throw error;
 
     var fires = topojson.feature(caFire, caFire.objects.ca_fires);
     //var vals = values[0].properties;
@@ -123,7 +123,7 @@ d3.json("caFire.json", function (error, caFire) {
                             return 650 + "px";
                     });
                 div.html("<tab1>Fire Name: </tab1><tab2>" + t_name + "</tab2><br>" +
-                    "<tab1>Year:</tab1><tab2>" + d.values[0].properties.YEAR + "</tab2><br>" +
+                    "<tab1>Year:</tab1><tab2>" + d.values[0].properties.YEAR_ + "</tab2><br>" +
                     "<tab1>Agency: </tab1><tab2>&nbsp&nbsp" + t_agency + "</tab2><br>" +
                     "<tab1>Adm. Unit: </tab1><tab2>&nbsp&nbsp" + t_unit + "</tab2><br>" +
 						  "<tab1>Cause: </tab1><tab2>" + t_cause + "</tab2><br>" +
