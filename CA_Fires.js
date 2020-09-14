@@ -51,7 +51,7 @@ d3.selection.prototype.moveToBack = function () {
 d3.json("caFire.json", function (error, caFire) {
     if (error) return console.error(error);
 
-    var fires = topojson.feature(caFire, caFire.objects.ca_fires);
+    var fires = topojson.feature(caFire, caFire.objects.calFire);
 	 //console.log(fires);
     //var vals = values[0].properties;
 
