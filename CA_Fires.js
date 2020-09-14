@@ -51,7 +51,7 @@ d3.selection.prototype.moveToBack = function () {
 d3.json("caFire.json", function (error, caFire) {
     if (error) throw error;
 
-    var fires = topojson.feature(caFire, caFire.objects.fires_great_5k);
+    var fires = topojson.feature(caFire, caFire.objects.fires);
     //var vals = values[0].properties;
 
     // Clip fires to land.
@@ -68,10 +68,10 @@ d3.json("caFire.json", function (error, caFire) {
         .selectAll("path")
         .data(d3.nest()
             .key(function (d) {
-                return (d.properties.area * 2.58999e6);
+                return (d.properties.Shape_Area * 2.58999e6);
             })
             .entries(fires.features.filter(function (d) {
-                return d.properties.area;
+                return d.properties.Shape_Area;
             })))
 
     .enter().append("path")
@@ -86,16 +86,19 @@ d3.json("caFire.json", function (error, caFire) {
             if (this.getAttribute("hoverable") == "true") {
                 // Display data from fire onto tooltip
                 d3.select(this).moveToFront(); // Brings selection to front
-                var t_acreage = d3.format(",f")(d.values[0].properties.acres);
+                var t_acreage = d3.format(",f")(d.values[0].properties.GIS_ACRES);
 
-                var t_name = d.values[0].properties.name.replace(/\w\S*/g, function (txt) {
+                var t_name = d.values[0].properties.FIRE_NAME.replace(/\w\S*/g, function (txt) {
                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
                 });
 
-                var t_agency = d.values[0].properties.agency;
+                var t_agency = d.values[0].properties.AGENCY;
                 t_agency = agencyCode(t_agency);
-
-                var t_cause = d.values[0].properties.cause;
+					 
+					 var t_unit = d.values[0].properties.UNIT_ID;
+					 t_unit = unitCode(t_unit);
+					 
+                var t_cause = d.values[0].properties.CAUSE;
                 t_cause = causeCode(t_cause);
 
                 coordinates = d3.mouse(this);
@@ -120,9 +123,10 @@ d3.json("caFire.json", function (error, caFire) {
                             return 650 + "px";
                     });
                 div.html("<tab1>Fire Name: </tab1><tab2>" + t_name + "</tab2><br>" +
-                    "<tab1>Year:</tab1><tab2>" + d.values[0].properties.year + "</tab2><br>" +
+                    "<tab1>Year:</tab1><tab2>" + d.values[0].properties.YEAR + "</tab2><br>" +
                     "<tab1>Agency: </tab1><tab2>&nbsp&nbsp" + t_agency + "</tab2><br>" +
-                    "<tab1>Cause: </tab1><tab2>" + t_cause + "</tab2><br>" +
+                    "<tab1>Adm. Unit: </tab1><tab2>&nbsp&nbsp" + t_unit + "</tab2><br>" +
+						  "<tab1>Cause: </tab1><tab2>" + t_cause + "</tab2><br>" +
                     "<tab1>Total Acreage: </tab1><tab2>" + t_acreage + "</tab2>")
                 d3.select(".tooltip").classed("hidden", false);
             }
@@ -196,6 +200,7 @@ d3.json("caFire.json", function (error, caFire) {
         .html("2019");
 });
 
+
 function agencyCode(a) {
     switch (a) {
         case "BIA":
@@ -241,6 +246,92 @@ function agencyCode(a) {
     return a;
 }
 
+function unitCode(a){
+	switch (a) {
+		case "AEU":
+			a = "Amador / El Dorado Unit"
+			break;
+		case "BDU":
+			a = "San Bernardino Unit"
+			break;
+		case "BEU":
+			a = "San Benito / Monterey Unit"
+			break;
+		case "BTU":
+			a = "Butte Unit"
+			break;
+		case "CZU":
+		   a = "San Mateo / Santa Cruz Unit"
+			break;
+		case "FKU":
+			a = "Fresno / Kings Unit"
+			break;
+		case "HUU":
+			a = "Humboldt / Del Norte Unit"
+			break;
+		case "LMU":
+			a = "Lassen / Modoc Unit"
+			break;
+		case "LNU":
+			a = "Sonoma / Lake / Napa Unit"
+			break;
+		case "MEU":
+			a = "Mendocino Unit"
+			break;
+		case "MMU":
+			a = "Madera / Mariposa / Merced Unit"
+			break;
+		case "MVU":
+			a = "San Diego Unit"
+			break;
+		case "NEU":
+			a = "Nevada / Yuba / Placer Unit"
+			break;
+		case "RRU":
+			a = "Riverside Unit"
+			break;
+		case "SCU":
+			a = "Santa Clara Unit"
+			break;
+		case "SHU":
+		   a = "Shasta / Trinity Unit"
+			break;
+		case "SKU":
+			a = "Siskiyou Unit"
+			break;
+		case "SLU":
+			a = "San Luis Obispo Unit"
+			break;
+		case "TCU":
+			a = "Tuolumne / Calaveras Unit"
+			break;
+		case "TGU":
+			a = "Tehama / Glenn Unit"
+			break;
+		case "TUU":
+			a = "Tulare Unit"
+			break;
+		case "KRN":
+			a = "Kern County"
+			break;
+		case "LAC":
+			a = "Los Angeles County"
+			break;
+		case "MRN":
+			a = "Marin County"
+			break;
+		case "ORC":
+			a = "Orange County"
+			break;
+		case "SBC":
+			a = "Santa Barbara County"
+			break;
+		case "VNC":
+			a = "Ventura County"
+			break;
+	}
+	return a;
+}
 
 function causeCode(c) {
 
