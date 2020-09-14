@@ -4,7 +4,7 @@ var width = 645,
 var formatNumber = d3.format(",d");
 
 var path = d3.geo.path()
-    .projection(d3.geoAlbers());
+    .projection(d3.geo.albersUsa());
 
 var coordinates = [0, 0];
 
