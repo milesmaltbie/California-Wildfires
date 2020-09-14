@@ -52,7 +52,7 @@ d3.json("caFire.json", function (error, caFire) {
     if (error) return console.error(error);
 
     var fires = topojson.feature(caFire, caFire.objects.calFire);
-	 console.log(fires);
+	 //console.log(fires);
     //var vals = values[0].properties;
 
     // Clip fires to land.
