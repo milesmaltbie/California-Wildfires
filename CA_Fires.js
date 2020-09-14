@@ -30,7 +30,7 @@ var svgBottom = val.bottom;
 var svgRight = val.right;
 var viewBoxHeight = 1150;
 
-var slider = d3.slider().min(1895).max(2015).step(1).axis(true).value([1895, 2015]);
+var slider = d3.slider().min(1895).max(2019).step(1).axis(true).value([1895, 2019]);
 
 // Extend moveToFront/Back functionalities + some Bostock magick as seen on:
 // http://bl.ocks.org/eesur/4e0a69d57d3bfc8a82c2
