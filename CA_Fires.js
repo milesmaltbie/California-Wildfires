@@ -56,11 +56,11 @@ d3.json("caFire.json", function (error, caFire) {
     //var vals = values[0].properties;
 
     // Clip fires to land.
-    svg.append("defs").append("clipPath")
+/*    svg.append("defs").append("clipPath")
         .attr("id", "clip-land")
         .append("path")
         .datum(topojson.feature(caFire, caFire.objects.counties))
-        .attr("d", path);
+        .attr("d", path); */
 
     // Group fires by color for faster rendering.
     svg.append("g")
@@ -153,7 +153,7 @@ d3.json("caFire.json", function (error, caFire) {
         .attr("d", path);
 
 
-    // Draw state border
+  /*  // Draw state border
    svg.append("path")
         .datum(topojson.mesh(caFire, caFire.objects.state, function (d) {
             return true;
@@ -164,7 +164,7 @@ d3.json("caFire.json", function (error, caFire) {
             console.log(d3.event.pageX + ", ")
             console.log(d3.event.pageY)
         });
-		  
+	*/	  
     // assign all elements (fire) to false.
     svg.selectAll(".fire").attr("hoverable", true)
         // Draw county borders.
