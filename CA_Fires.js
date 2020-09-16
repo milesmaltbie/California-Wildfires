@@ -9,7 +9,7 @@ var path = d3.geo.path()
 var coordinates = [0, 0];
 
 var toolscaleX = d3.scale.linear()
-    .domain([0, 960])
+    .domain([0, 2160])
     .range([0, width]);
 
 var svg = d3.select("body").append("svg")
