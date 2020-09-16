@@ -12,11 +12,14 @@ var toolscaleX = d3.scale.linear()
     .domain([0, 960]) //960
     .range([0, width]);
 
-var svg = d3.select("body").append("svg")
-    .attr("id", "svgElem")
-    .attr("viewBox", "0, 65, 989, 1150") //1150 //960, 1300
+var svg = d3.select("div#container")
+    .append("svg")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+	 .attr("id", "svgElem")
+	 .attr("viewBox", "0, 65, 989, 1150") //1150 //960, 1300
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+	 .classed("svg-content", true);
 
 
 var div = d3.select("body").append("div")
