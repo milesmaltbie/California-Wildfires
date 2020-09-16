@@ -113,7 +113,7 @@ d3.json("caFire.json", function (error, caFire) {
                     // Displays tooltip to the right of the map
                     .style("left", function () {
                         if (Y < ((viewBoxHeight + svgTop) * .28))
-                            return svgLeft + width / 2.4 + "px";
+                            return svgLeft + svgRight / 2.4 + "px";
                         else if (Y >= ((viewBoxHeight + svgTop) * .28) && Y <= ((viewBoxHeight + svgTop) * .65))
                             return ((Y / 1.5) + (width + 40)) + "px";
                         else if (Y > ((viewBoxHeight + svgTop) * .65))
