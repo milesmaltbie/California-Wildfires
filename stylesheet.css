@@ -70,7 +70,7 @@ tab2 { float: right}
 .svg-content {
 	 display: inline-block;
 	 position: relative;
-	 horizontal align: center;
+	 horizontal-align: center;
 }
 
 #slider {
