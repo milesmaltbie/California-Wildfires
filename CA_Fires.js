@@ -134,7 +134,7 @@ d3.json("caFire.json", function (error, caFire) {
 						 d3.select(".tooltip").classed("hidden", false);
 					}
             }
-        })
+        )
         .on("mouseout", function (d) { // move selection to back to make room
             d3.select(this).moveToBack()
             div.style("opacity", .8)
