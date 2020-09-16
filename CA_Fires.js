@@ -1,5 +1,5 @@
 var width = 645,
-    height = 750;
+    height = 2160;
 
 var formatNumber = d3.format(",d");
 
@@ -9,12 +9,12 @@ var path = d3.geo.path()
 var coordinates = [0, 0];
 
 var toolscaleX = d3.scale.linear()
-    .domain([0, 2160])
+    .domain([0, 960]) //960
     .range([0, width]);
 
 var svg = d3.select("body").append("svg")
     .attr("id", "svgElem")
-    .attr("viewBox", "0, 65, 989, 2160") //960, 1300
+    .attr("viewBox", "0, 65, 989, 1150") //1150 //960, 1300
     .attr("width", width)
     .attr("height", height);
 
@@ -28,7 +28,7 @@ var svgLeft = val.left;
 var svgTop = val.top;
 var svgBottom = val.bottom;
 var svgRight = val.right;
-var viewBoxHeight = 2160;
+var viewBoxHeight = 1150; //1150
 
 var slider = d3.slider().min(1895).max(2015).step(1).axis(true).value([1895, 2015]);
 
