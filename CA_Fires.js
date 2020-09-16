@@ -50,7 +50,6 @@ d3.selection.prototype.moveToBack = function () {
         }
     });
 };
-
 d3.json("caFire.json", function (error, caFire) {
     if (error) throw error;
 
@@ -76,7 +75,7 @@ d3.json("caFire.json", function (error, caFire) {
             .entries(fires.features.filter(function (d) {
                 return d.properties.area;
             })))
-
+	
     .enter().append("path")
         .attr("class", "fire")
         .attr("d", function (d) {
@@ -107,13 +106,14 @@ d3.json("caFire.json", function (error, caFire) {
                 coordinates = d3.mouse(this);
                 var Y = coordinates[1];
 
-                div.style("opacity", 0)
+                
+					 div.style("opacity", 0)
                     .transition().duration(400)
                     .style("opacity", .8)
                     // Displays tooltip to the right of the map
-                    .style("left", function () {
+                    /*.style("left", function () {
                         if (Y < ((viewBoxHeight + svgTop) * .28))
-                            return svgLeft + svgRight / 2.4 + "px";
+                            return svgLeft + width / 2.4 + "px";
                         else if (Y >= ((viewBoxHeight + svgTop) * .28) && Y <= ((viewBoxHeight + svgTop) * .65))
                             return ((Y / 1.5) + (width + 40)) + "px";
                         else if (Y > ((viewBoxHeight + svgTop) * .65))
@@ -124,14 +124,15 @@ d3.json("caFire.json", function (error, caFire) {
                             return (d3.event.pageY - 28) + "px"
                         else
                             return 650 + "px";
-                    });
-                div.html("<tab1>Fire Name: </tab1><tab2>" + t_name + "</tab2><br>" +
-                    "<tab1>Year:</tab1><tab2>" + d.values[0].properties.year + "</tab2><br>" +
-                    "<tab1>Agency: </tab1><tab2>&nbsp&nbsp" + t_agency + "</tab2><br>" +
-                    "<tab1>Adm. Unit: </tab1><tab2>&nbsp&nbsp" + t_unit + "</tab2><br>" +
-						  "<tab1>Cause: </tab1><tab2>" + t_cause + "</tab2><br>" +
-                    "<tab1>Total Acreage: </tab1><tab2>" + t_acreage + "</tab2>")
-                d3.select(".tooltip").classed("hidden", false);
+                    });*/
+						 div.html("<tab1>Fire Name: </tab1><tab2>" + t_name + "</tab2><br>" +
+							  "<tab1>Year:</tab1><tab2>" + d.values[0].properties.year + "</tab2><br>" +
+							  "<tab1>Agency: </tab1><tab2>&nbsp&nbsp" + t_agency + "</tab2><br>" +
+							  "<tab1>Adm. Unit: </tab1><tab2>&nbsp&nbsp" + t_unit + "</tab2><br>" +
+							  "<tab1>Cause: </tab1><tab2>" + t_cause + "</tab2><br>" +
+							  "<tab1>Total Acreage: </tab1><tab2>" + t_acreage + "</tab2>")
+						 d3.select(".tooltip").classed("hidden", false);
+					}
             }
         })
         .on("mouseout", function (d) { // move selection to back to make room
