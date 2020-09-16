@@ -188,4 +188,119 @@ d3.json("caFire.json", function (error, caFire) {
         )
         .selectAll(".d3-slider-handle")
         .append("div")
+        .attr("class", "yearBox")
+
+    d3.select("#handle-one").select(".yearBox")
+        .html("1895");
+    d3.select("#handle-two").select(".yearBox")
+        .html("2015");
+});
+
+function agencyCode(a) {
+    switch (a) {
+        case "BIA":
+            a = "USDI Bureau of Indian Affairs"
+            break;
+        case "BLM":
+            a = "Bureau of Land Management"
+            break;
+        case "CAL":
+            a = "California Department of Forestry (CAL FIRE)"
+            break;
+        case "CCO":
+            a = "Contract Counties"
+            break;
+        case "DOD":
+            a = "Department of Defense"
+            break;
+        case "FWS":
+            a = "USDI Fish and Wildlife Service"
+            break;
+        case "LRA":
+            a = "Local Response Area"
+            break;
+        case "NOP":
+            a = "No Protection"
+            break;
+        case "NPS":
+            a = "National Park Service"
+            break;
+        case "PVT":
+            a = "Private"
+            break;
+        case "USF":
+            a = "United States Forest Service"
+            break;
+        case "OTH":
+            a = "Other"
+            break;
+        case "CDF":
+            a = "California Department of Forestry (CAL FIRE)"
+            break;
+    }
+    return a;
+}
+
+
+function causeCode(c) {
+
+    switch (c) {
+        case 1:
+            c = "Lightning"
+            break;
+        case 2:
+            c = "Equipment Use"
+            break;
+        case 3:
+            c = "Smoking"
+            break;
+        case 4:
+            c = "Campfire"
+            break;
+        case 5:
+            c = "Debris"
+            break;
+        case 6:
+            c = "Railroad"
+            break;
+        case 7:
+            c = "Arson"
+            break;
+        case 8:
+            c = "Playing with Fire"
+            break;
+        case 9:
+            c = "Miscellaneous"
+            break;
+        case 10:
+            c = "Vehicle"
+            break;
+        case 11:
+            c = "Power Line"
+            break;
+        case 12:
+            c = "Firefighter Training"
+            break;
+        case 13:
+            c = "Non-Firefighter Training"
+            break;
+        case 14:
+            c = "Unknown/Unidentified"
+            break;
+        case 15:
+            c = "Structure"
+            break;
+        case 16:
+            c = "Aircraft"
+            break;
+        case 17:
+            c = "Volcanic"
+            break;
+        case 18:
+            c = "Escaped Prescribed Burn"
+            break;
+        case 19:
+            c = "Illegal Alien Campfire"
+    };
+    return c;
 }
