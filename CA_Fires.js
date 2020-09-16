@@ -1,5 +1,5 @@
-var width = 645,
-    height = 750;
+var width = 800,
+    height = 950;
 
 var formatNumber = d3.format(",d");
 
