@@ -188,4 +188,4 @@ d3.json("caFire.json", function (error, caFire) {
         )
         .selectAll(".d3-slider-handle")
         .append("div")
-        
+}
