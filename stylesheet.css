@@ -19,13 +19,13 @@ svg {
 }
 
 .fire {
-    fill: orangered;
+    fill: firebrick;
     stroke-opacity: .5;
     fill-opacity: .5;
 }
 
 .fire:hover {
-    fill: firebrick;
+    fill: orangered;
     stroke-opacity: .5;
     fill-opacity: 1;
 }
