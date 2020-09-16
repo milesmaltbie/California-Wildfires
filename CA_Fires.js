@@ -14,7 +14,7 @@ var toolscaleX = d3.scale.linear()
 
 var svg = d3.select("body").append("svg")
     .attr("id", "svgElem")
-    .attr("viewBox", "0, 65, 989, 1150") //960, 1300
+    .attr("viewBox", "0, 65, 989, 2160") //960, 1300
     .attr("width", width)
     .attr("height", height);
 
@@ -28,7 +28,7 @@ var svgLeft = val.left;
 var svgTop = val.top;
 var svgBottom = val.bottom;
 var svgRight = val.right;
-var viewBoxHeight = 1150;
+var viewBoxHeight = 2160;
 
 var slider = d3.slider().min(1895).max(2015).step(1).axis(true).value([1895, 2015]);
 
