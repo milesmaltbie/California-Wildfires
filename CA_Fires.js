@@ -17,8 +17,8 @@ var svg = d3.select("div#container")
     .attr("preserveAspectRatio", "xMinYMin meet")
 	 .attr("id", "svgElem")
 	 .attr("viewBox", "0, 65, 989, 1150") //1150 //960, 1300
-    .attr("width", width)
-    .attr("height", height)
+    //.attr("width", width)
+    //.attr("height", height)
 	 .classed("svg-content", true);
 
 
