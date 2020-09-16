@@ -97,7 +97,10 @@ d3.json("caFire.json", function (error, caFire) {
 
                 var t_cause = d.values[0].properties.cause;
                 t_cause = causeCode(t_cause);
-
+					 
+					 var t_unit = d.values[0].properties.unit;
+					 t_unit = unitCode(t_unit);
+					 
                 coordinates = d3.mouse(this);
                 var Y = coordinates[1];
 
@@ -122,7 +125,8 @@ d3.json("caFire.json", function (error, caFire) {
                 div.html("<tab1>Fire Name: </tab1><tab2>" + t_name + "</tab2><br>" +
                     "<tab1>Year:</tab1><tab2>" + d.values[0].properties.year + "</tab2><br>" +
                     "<tab1>Agency: </tab1><tab2>&nbsp&nbsp" + t_agency + "</tab2><br>" +
-                    "<tab1>Cause: </tab1><tab2>" + t_cause + "</tab2><br>" +
+                    "<tab1>Adm. Unit: </tab1><tab2>&nbsp&nbsp" + t_unit + "</tab2><br>" +
+						  "<tab1>Cause: </tab1><tab2>" + t_cause + "</tab2><br>" +
                     "<tab1>Total Acreage: </tab1><tab2>" + t_acreage + "</tab2>")
                 d3.select(".tooltip").classed("hidden", false);
             }
@@ -241,6 +245,92 @@ function agencyCode(a) {
     return a;
 }
 
+function unitCode(a){
+	switch (a) {
+		case "AEU":
+			a = "Amador / El Dorado Unit"
+			break;
+		case "BDU":
+			a = "San Bernardino Unit"
+			break;
+		case "BEU":
+			a = "San Benito / Monterey Unit"
+			break;
+		case "BTU":
+			a = "Butte Unit"
+			break;
+		case "CZU":
+		   a = "San Mateo / Santa Cruz Unit"
+			break;
+		case "FKU":
+			a = "Fresno / Kings Unit"
+			break;
+		case "HUU":
+			a = "Humboldt / Del Norte Unit"
+			break;
+		case "LMU":
+			a = "Lassen / Modoc Unit"
+			break;
+		case "LNU":
+			a = "Sonoma / Lake / Napa Unit"
+			break;
+		case "MEU":
+			a = "Mendocino Unit"
+			break;
+		case "MMU":
+			a = "Madera / Mariposa / Merced Unit"
+			break;
+		case "MVU":
+			a = "San Diego Unit"
+			break;
+		case "NEU":
+			a = "Nevada / Yuba / Placer Unit"
+			break;
+		case "RRU":
+			a = "Riverside Unit"
+			break;
+		case "SCU":
+			a = "Santa Clara Unit"
+			break;
+		case "SHU":
+		   a = "Shasta / Trinity Unit"
+			break;
+		case "SKU":
+			a = "Siskiyou Unit"
+			break;
+		case "SLU":
+			a = "San Luis Obispo Unit"
+			break;
+		case "TCU":
+			a = "Tuolumne / Calaveras Unit"
+			break;
+		case "TGU":
+			a = "Tehama / Glenn Unit"
+			break;
+		case "TUU":
+			a = "Tulare Unit"
+			break;
+		case "KRN":
+			a = "Kern County"
+			break;
+		case "LAC":
+			a = "Los Angeles County"
+			break;
+		case "MRN":
+			a = "Marin County"
+			break;
+		case "ORC":
+			a = "Orange County"
+			break;
+		case "SBC":
+			a = "Santa Barbara County"
+			break;
+		case "VNC":
+			a = "Ventura County"
+			break;
+	}
+	return a;
+}
 
 function causeCode(c) {
 
