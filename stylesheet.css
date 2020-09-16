@@ -69,9 +69,8 @@ tab2 { float: right}
 
 .svg-content {
 	 display: inline-block;
-	 position: absolute;
-	 top: 0;
-	 left: 0;
+	 position: relative;
+	 horizontal align: center;
 }
 
 #slider {
