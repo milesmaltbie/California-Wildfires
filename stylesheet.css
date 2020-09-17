@@ -1,3 +1,20 @@
+body {
+    background-color: black;
+	 color: white;
+}
+h1 {
+    text-align: center; 
+	 font: 24px sans-serif; 
+	 font-weight: bold; 
+	 padding-left: 30px; 
+	 color: white;
+}
+
+h4 {
+	text-align: center; 
+	font: 14px sans-serif;
+	color: #dcdcdc;
+}
 svg {
     font: 10px sans-serif;
     display:block;
@@ -48,7 +65,7 @@ svg {
     text-align: left;
     font-weight: bold;
     padding: 12px;
-    background: rgba(256, 256, 256, 0.8);
+    background: rgba(0, 0, 0, 0.8);
     color: grey;
     border-radius: 2px;
     left: 800px;
@@ -89,8 +106,8 @@ tab2 { float: right}
 header {
     font: 14px sans-serif;
     padding: 1em;
-    color: black;
-    background-color: lightgray;
+    color: white;
+    background-color: #404040;
     clear: left;
     text-align: center;
 }
