@@ -111,7 +111,7 @@ d3.json("caFire.json", function (error, caFire) {
                     .transition().duration(400)
                     .style("opacity", .8)
                     // Displays tooltip to the right of the map
-                    /*.style("left", function () {
+                    .style("left", function () {
                         if (Y < ((viewBoxHeight + svgTop) * .28))
                             return svgLeft + width / 2.4 + "px";
                         else if (Y >= ((viewBoxHeight + svgTop) * .28) && Y <= ((viewBoxHeight + svgTop) * .65))
@@ -124,7 +124,7 @@ d3.json("caFire.json", function (error, caFire) {
                             return (d3.event.pageY - 28) + "px"
                         else
                             return 650 + "px";
-                    });*/
+                    });
 						 div.html("<tab1>Fire Name: </tab1><tab2>" + t_name + "</tab2><br>" +
 							  "<tab1>Year:</tab1><tab2>" + d.values[0].properties.year + "</tab2><br>" +
 							  "<tab1>Agency: </tab1><tab2>&nbsp&nbsp" + t_agency + "</tab2><br>" +
