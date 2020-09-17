@@ -97,7 +97,7 @@ tab2 { float: right}
 
 .yearBox {
     font: 12px sans-serif;
-    color: black;
+    color: white;
     text-align: center;
     position: element(.d3-slider-handle);
     transform: translateY(-100%);
