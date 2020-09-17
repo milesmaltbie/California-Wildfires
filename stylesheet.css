@@ -58,11 +58,10 @@ svg {
 tab1 { float: left}
 tab2 { float: right}
 
-svg-container {
+.svg-container {
 	 /*display: inline-block;
 	 position: relative;*/
     width: 100%;
-	 padding-bottom: 100%;
 	 vertical-align: top;
 	 overflow: hidden;
 }
