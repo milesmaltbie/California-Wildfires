@@ -31,7 +31,7 @@ svg {
 
 .key line {
     fill: none;
-    stroke: #808080;
+    stroke: #d3d3d3;
     shape-rendering: crispEdges;
 }
 
@@ -49,14 +49,14 @@ svg {
 
 .state-border {
     fill: none;
-    stroke: #808080;
-    stroke-opacity: .4;
+    stroke: #d3d3d3;
+    stroke-opacity: .7;
 }
 
 .county-border {
     fill: none;
-    stroke: #808080;
-    stroke-opacity: .4;
+    stroke: #d3d3d3;
+    stroke-opacity: .7;
 }
 
 .tooltip {
