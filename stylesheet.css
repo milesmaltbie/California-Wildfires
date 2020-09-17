@@ -31,7 +31,7 @@ svg {
 
 .key line {
     fill: none;
-    stroke: #000;
+    stroke: #808080;
     shape-rendering: crispEdges;
 }
 
@@ -49,13 +49,13 @@ svg {
 
 .state-border {
     fill: none;
-    stroke: #000;
+    stroke: #808080;
     stroke-opacity: .4;
 }
 
 .county-border {
     fill: none;
-    stroke: #000;
+    stroke: #808080;
     stroke-opacity: .4;
 }
 
