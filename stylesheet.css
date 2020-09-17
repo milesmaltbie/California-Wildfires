@@ -58,20 +58,20 @@ svg {
 tab1 { float: left}
 tab2 { float: right}
 
-.svg-container {
-	 display: inline-block;
-	 position: relative;
+svg-container {
+	 /*display: inline-block;
+	 position: relative;*/
     width: 100%;
 	 padding-bottom: 100%;
 	 vertical-align: top;
 	 overflow: hidden;
 }
 
-.svg-content {
+/*.svg-content {
 	 display: inline-block;
 	 position: relative;
 	 horizontal-align: center;
-}
+}*/
 
 #slider {
     margin-left: auto;
